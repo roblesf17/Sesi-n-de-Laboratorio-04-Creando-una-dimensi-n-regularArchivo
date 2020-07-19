@@ -1,0 +1,132 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{graphicx} % figuras
+% \usepackage{subfigure} % subfiguras
+\usepackage{float} % para usar [H]
+\usepackage{amsmath}
+%\usepackage{txfonts}
+\usepackage{stackrel} 
+\usepackage{multirow}
+\usepackage{enumerate} % enumerados
+\renewcommand{\labelitemi}{$-$}
+\renewcommand{\labelitemii}{$\cdot$}
+% \author{}
+% \title{Caratula}
+\begin{document}
+
+% Fancy Header and Footer
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \cfoot{}
+% \rfoot{\thepage}
+%
+
+% \usepackage[hidelinks]{hyperref} % CREA HYPERVINCULOS EN INDICE
+
+% \author{}
+\title{Caratula}
+
+\begin{titlepage}
+\begin{center}
+\large{UNIVERSIDAD PRIVADA DE TACNA}\\
+\vspace*{-0.025in}
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=7cm]{./images/logo}
+\end{center}
+\end{figure}
+\vspace*{0.15in}
+INGENIERIA DE SISTEMAS  \\
+
+\vspace*{0.3in}
+\begin{large}
+\textbf{TITULO:} \\
+\end{large}
+
+\vspace*{0.1in}
+\begin{Large}
+\textbf{Informe de Laboratorio 04 -  Crear una Dimensión Regular con SQL
+Server Analysis Services} \\
+
+\end{Large}
+
+\vspace*{0.3in}
+\begin{Large}
+\textbf{CURSO:} \\
+\end{Large}
+
+\vspace*{0.1in}
+\begin{large}
+INTELIGENCIA DE NEGOCIOS\\
+\end{large}
+
+\vspace*{0.3in}
+\begin{Large}
+\textbf{DOCENTE:} \\
+\end{Large}
+
+\vspace*{0.1in}
+\begin{large}
+ Ing. Patrick Cuadros Quiroga\\
+\end{large}
+
+\vspace*{0.4in}
+\vspace*{0.1in}
+\begin{large}
+\textbf{Estudiante:} \\
+\begin{flushleft}
+Anthony Richard Robles Flores  \hfill	(2016056192)\\
+
+\centering  %CENTRA UN TEXTO
+\vspace*{0.9in}
+\begin{large}
+Tacna\\ 
+\end{large}
+
+\end{flushleft}
+\end{large}
+\end{center}
+
+\end{titlepage}
+
+
+\tableofcontents % INDICE
+\thispagestyle{empty} % INDICE SIN NUMERO
+\newpage
+\setcounter{page}{1} % REINICIAR CONTADOR DE PAGINAS DESPUES DEL INDICE
+
+%%INICIO Resumen
+\section{Onjetivos}
+Crear una Dimensión sobre un Cubo Multidimensional en SQL Server Analysis Services para que usuarios
+finales puedan explotar la información.
+%%FIN Resumen
+
+%%INICIO Resumen
+\section{Dimension Regular }
+Las dimensiones regulares representan datos descriptivos que proporcionan contexto para datos modelados en dimensiones de medida. Una dimensión regular se divide en grupos de información denominados niveles. A su vez, los distintos niveles se pueden organizar en jerarquías. Por ejemplo, la dimensión de un producto puede contener los niveles Product Line, Product Type y Product organizados en una única jerarquía denominada Product. Otro ejemplo es una dimensión de tiempo que tiene los niveles Year, Quarter, Month, Week y Day, organizados en dos jerarquías. La primera jerarquía YQMD contiene los niveles Year, Quarter, Month y Day, la otra jerarquía YWD contiene los niveles Year, Week y Day.
+\\
+\\
+La definición más sencilla de un nivel consta de una clave de empresa y un título, donde cada uno de estos elementos hace referencia a un elemento de consulta. Una instancia (o fila) de un nivel se define como miembro de ese nivel. Se identifica por un nombre exclusivo de miembro, que contiene los valores de las claves de empresa de los niveles actual y superior. Por ejemplo, [gosales].[Products].[ProductsOrg].[Product]->[All Products].[1].[1].[2] identifica un miembro que se encuentra en el cuarto nivel, Product, de la jerarquía ProductsOrg de la dimensión [Products] que está en el espacio de nombres [gosales]. El título para este producto es TrailChef Canteen, que es el nombre que aparece en el árbol de metadatos y en el informe.
+\\
+\\
+El nivel se puede definir como exclusivo si la clave de empresa es suficiente para identificar cada conjunto de datos para un nivel. En el modelo Great Outdoors Sales, los miembros del nivel Product no necesitan la definición de tipo Product porque muchos tipos de producto diferentes no tienen números de producto asignados. Un nivel que no está definido como exclusivo es similar a un determinante que utiliza claves de varias partes porque se necesitan claves de niveles superiores de granularidad. Consulte: Utilización de determinantes con claves de varias partes. Si miembros de los miembros ancestro no son exclusivos pero el nivel se ha identificado como exclusivo, los datos para los miembros no exclusivos se informan como un único miembro. Por ejemplo, si City se define como exclusivo y se identifica por el nombre, los datos para London, England y London, Canada, se combinarán.
+%%FIN Resumen
+
+%%----------------------------------------------------------------------------------------------------------------------------------------------------------
+%%INICIO Marco Teórico
+\section{Procedimiento}
+
+Tomando como base el laboratorio anterior se construyo un cubo básico Multidimensional, pero se tenia
+dificultad al momento de explotar la información. Este detalle se debe a que no tuvimos un manejo más
+personalizado de los atributos de las dimensiones. En este laboratorio se abordará como crear y configurar
+una dimensión regular en Analysis Services.
+
+\include{sections/Task01}
+\include{sections/Task02}
+\include{sections/Task03}
+
+
+\end{document}
